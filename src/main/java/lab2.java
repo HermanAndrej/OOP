@@ -9,6 +9,7 @@ public class lab2 {
         for(int i = 0; i < timesCount; i++){
             printText();
         } */
+        /*
         Random rand = new Random();
         Scanner read = new Scanner(System.in);
         int num = rand.nextInt(101);
@@ -25,7 +26,8 @@ public class lab2 {
             }else{
                 System.out.println("Good job!");
             }
-        }
+        } */
+        System.out.println(fact(5));
     }
 
     static void task1(){
@@ -134,6 +136,20 @@ public class lab2 {
             }
             System.out.println();
         }
+    }
+
+    public static void multiplicationTable(int start, int end, int num){
+        for(int i = start; i<end; i++){
+            System.out.println(i + " * " + num + " = " + i*num );
+        }
+    }
+
+    public static int fact(int num){
+        int sum = 1;
+        for(int i = 1; i <= num; i++){
+            sum *= i;
+        }
+        return sum;
     }
 
 }
