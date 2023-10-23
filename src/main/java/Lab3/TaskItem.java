@@ -27,7 +27,7 @@ public class TaskItem {
         this.taskDescription = taskDescription;
     }
 
-    public static TaskStatus getTaskStatus(){
+    public TaskStatus getTaskStatus(){
         return taskStatus;
     }
 
