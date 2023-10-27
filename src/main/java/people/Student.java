@@ -9,9 +9,6 @@ public class Student extends Person{
     public void study(){
         credits++;
     }
-    public int credits(){
-        return credits;
-    }
     @Override
     public String toString() {
         return super.toString() + "\n" + credits;

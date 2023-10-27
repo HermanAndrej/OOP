@@ -9,8 +9,7 @@ public class Person {
         this.address = address;
     }
 
-
-
+    @Override
     public String toString() {
         return name + "\n " + address;
     }
