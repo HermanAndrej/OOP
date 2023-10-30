@@ -23,6 +23,14 @@ public class Main {
 
         printDepartment(people);
 
+        Shape shape1 = new Shape("red", FillType.FILLED);
+        Circle circle1 = new Circle("blue", 8, FillType.NOT_FILLED);
+        Rectangle rectangle1 = new Rectangle("Green", FillType.NOT_FILLED, 7, 9);
+
+        shape1.displayInfo();
+        circle1.displayInfo();
+        rectangle1.displayInfo();
+
     }
     public static void printDepartment(List<Person> people) {
         for(Person person : people){
