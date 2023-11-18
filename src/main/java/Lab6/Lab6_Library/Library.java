@@ -1,4 +1,4 @@
-package Lab6_Library;
+package Lab6.Lab6_Library;
 
 import java.util.ArrayList;
 

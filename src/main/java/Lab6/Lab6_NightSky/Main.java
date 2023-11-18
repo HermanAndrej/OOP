@@ -1,4 +1,4 @@
-package Lab6_NightSky;
+package Lab6.Lab6_NightSky;
 
 public class Main {
     public static void main(String[] args){

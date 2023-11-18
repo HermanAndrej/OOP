@@ -1,6 +1,4 @@
-package Lab6_Library;
-
-import java.util.ArrayList;
+package Lab6.Lab6_Library;
 
 public class Main {
     public static void main(String[] args){

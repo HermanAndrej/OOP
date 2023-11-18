@@ -1,4 +1,4 @@
-package Lab6_HashMaps;
+package Lab6.Lab6_HashMaps;
 
 import java.util.Scanner;
 

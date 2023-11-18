@@ -1,4 +1,4 @@
-package Lab6_birdwatchers;
+package Lab6.Lab6_birdwatchers;
 
 import java.util.ArrayList;
 import java.util.Scanner;

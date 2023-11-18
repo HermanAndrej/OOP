@@ -1,6 +1,5 @@
-package Lab6_HashMaps;
+package Lab6.Lab6_HashMaps;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {

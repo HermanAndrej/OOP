@@ -1,4 +1,4 @@
-package Lab6_generics;
+package Lab6.Lab6_generics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
