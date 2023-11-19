@@ -12,7 +12,7 @@ public class DataStructures {
         tasks = Arrays.asList(
                 new TaskItem(1, "Push lab code to the github", TaskStatus.TO_DO),
                 new TaskItem(2, "Prepare for the quiz", TaskStatus.IN_PROGRESS),
-                new TaskItem(3, "Go over tasks from lab2", TaskStatus.COMPLETED));
+                new TaskItem(3, "Go over tasks from Lab2.lab2", TaskStatus.COMPLETED));
     }
 
     public List<TaskItem> getTasks(){
