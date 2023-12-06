@@ -16,4 +16,8 @@ public class GradeAnalyzer {
         }
         return sum/grades.size();
     }
+
+    public void printSummary(){
+        System.out.println("Average grade is: " + calculateAvgGrade());
+    }
 }
