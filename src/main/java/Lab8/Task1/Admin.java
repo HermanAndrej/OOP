@@ -7,4 +7,8 @@ public class Admin {
     public Admin(String username){
         this.username = username;
     }
+
+    public String getUsername(){
+        return this.username;
+    }
 }
