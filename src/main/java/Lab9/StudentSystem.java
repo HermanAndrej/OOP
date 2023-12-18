@@ -10,8 +10,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StudentSystem {
+
+    List<Student> students;
+
     public StudentSystem(String fileName){
-        List<Student> students = new ArrayList<>();
+        students = new ArrayList<>();
         try{
             students = readStudents(fileName);
         } catch (IOException e) {
@@ -29,6 +32,7 @@ public class StudentSystem {
             String[] parsedLine = line.split(",");
             Student tempStudent = new Student(
                     Integer.parseInt(parsedLine[0]), parsedLine[1], parsedLine[2], parsedLine[3], Double.parseDouble(parsedLine[4]));
+
             students.add(tempStudent);
         }
         bufferedReader.close();
@@ -47,7 +51,11 @@ public class StudentSystem {
         bufferedReader.close();
     }
 
-    // public Optional<Student> getStudentById(int id){}
+    public Optional<Student> getStudentById(int id){
+        return students.stream()
+                .filter(student -> student.getId() == id)
+                .findFirst();
+    }
 
 }
 
