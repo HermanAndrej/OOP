@@ -1,78 +1,69 @@
 package Lab9;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class StudentSystem {
-
     List<Student> students;
 
-    public StudentSystem(String fileName){
-        students = new ArrayList<>();
-        try{
-            students = readStudents(fileName);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+    public StudentSystem(String fileName) throws IOException {
+        students = readStudents(fileName);
+        if(students.isEmpty()){
+            throw new EmptyStudentListException("List is empty!");
         }
     }
 
-    public static List<Student> readStudents(String fileName) throws IOException {
+    public List<Student> readStudents(String fileName){
         List<Student> students = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(
-                new FileReader(fileName)
-        );
-        List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-        for(String line : lines){
-            String[] parsedLine = line.split(",");
-            Student tempStudent = new Student(
-                    Integer.parseInt(parsedLine[0]), parsedLine[1], parsedLine[2], parsedLine[3], Double.parseDouble(parsedLine[4]));
-
-            students.add(tempStudent);
-        }
-        bufferedReader.close();
+        try{
+            BufferedReader bufferedReader = new BufferedReader(
+                    new FileReader(fileName)
+            );
+            List<String> lines = bufferedReader.lines().toList();
+            for(String line : lines){
+                String[] part = line.split(",");
+                Student student = new Student(
+                        Integer.parseInt(part[0]), part[1], part[2], part[3], Double.parseDouble(part[4]));
+                students.add(student);
+            }
+            bufferedReader.close();
+        } catch (IOException e){}
         return students;
-    }
-
-    public void readWholeStudentList(String fileName) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(
-                new FileReader(fileName)
-        );
-        List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-
-        for(String line : lines){
-            System.out.println(line);
-        }
-        bufferedReader.close();
     }
 
     public Optional<Student> getStudentById(int id){
         return students.stream()
                 .filter(student -> student.getId() == id)
                 .findFirst();
+
     }
 
-}
-
-/*
-    public static List<Student> readStudents(String fileName) throws IOException {
-        List<Student> students = new ArrayList<>();
-        BufferedReader bufferedReader = new BufferedReader(
-                new FileReader(fileName)
-        );
-        List<String> lines = bufferedReader.lines().collect(Collectors.toList());
-        for(String line : lines){
-            String[] parsedLine = line.split(",");
-            Student tempStudent = new Student(
-                    Integer.parseInt(parsedLine[0]), parsedLine[1], parsedLine[2], parsedLine[3], Double.parseDouble(parsedLine[4]));
-            students.add(tempStudent);
+    public Student getHighestGpaStudent(){
+        if(students.isEmpty()){
+            throw new EmptyStudentListException("List is empty!");
         }
-        bufferedReader.close();
-        return students;
+        Student temp = students.get(0);
+        for(Student student : students){
+            if(student.getGpa() > temp.getGpa()){
+                temp = student;
+            }
+        }
+        return temp;
     }
-    */
+
+    public Student getLongestNameStudent(){
+        if(students.isEmpty()){
+            throw new EmptyStudentListException("List is empty!");
+        }
+        Student temp = students.get(0);
+        for(Student student : students){
+            if(student.getName().length() > temp.getName().length()){
+                temp = student;
+            }
+        }
+        return temp;
+    }
+}
